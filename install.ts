@@ -14,6 +14,8 @@ import "https://cdn.skypack.dev/svelte@3.42.3/easing";
 import "https://cdn.skypack.dev/svelte@3.42.3/motion";
 import "https://cdn.skypack.dev/svelte@3.42.3/store";
 
+import { VERSION } from "./src/shared/version.ts";
+
 const install = async (name: string, url: string, importmap?: boolean) => {
   const process = Deno.run({
     cmd: [
@@ -29,7 +31,7 @@ const install = async (name: string, url: string, importmap?: boolean) => {
 };
 
 async function Main() {
-  await install("snel", "https://deno.land/x/snel/cli.ts");
+  await install("snel", `https://deno.land/x/snel@v${VERSION}/cli.ts`);
   await install("trex", "https://deno.land/x/trex/cli.ts", true);
 }
 
